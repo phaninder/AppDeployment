@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 
 var app = express();
 
-hbs.registerPartials(__dirname +'/views/partials');
+hbs.registerPartials(__dirname +'/view/partials');
 app.set('view engine','hbs');
 
 app.use((req,res,next)=>{
@@ -37,11 +37,10 @@ hbs.registerHelper('screamIt',(text)=>{
 });
 
 app.get('/',(req,res)=>{
-    // res.render('Home.hbs',{
-    //     pageTitle : 'Home Page',
-    //     message : 'Welcome to my site'
-    // });
-    res.send("Hello");
+    res.render('Home.hbs',{
+        pageTitle : 'Home Page',
+        message : 'Welcome to my site'
+    });
 });
 
 app.get('/about',(req,res)=>{
